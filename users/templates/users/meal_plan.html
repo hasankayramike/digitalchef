@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Meal Plan Generator</title>
+    <!-- Add any necessary CSS or scripts -->
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-3 text-center">
+                <h1>Generate Your Meal Plan</h1>
+                <form method="POST" action="{% url 'meal_plan' %}">
+                    {% csrf_token %}
+                    <!-- Add any form fields if needed -->
+                    <button class="btn btn-primary" type="submit">Generate Meal Plan</button>
+                </form>
+                <!-- Display the response from the server -->
+                <div id="meal-plan-result"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // You can use JavaScript to handle the form submission via AJAX
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            fetch(form.getAttribute('action'), {
+                method: 'POST',
+                body: new FormData(form),
+            })
+            .then(response => response.json())
+            .then(data => {
+                const mealPlanResult = document.getElementById('meal-plan-result');
+                mealPlanResult.textContent = data.response; // Display the generated meal plan
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>

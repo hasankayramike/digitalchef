@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <title>DigitalChef</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="{% static "meal_planner/main.css" %}">
+    </head>
+
+    <body>
+        <header>
+            <!-- place navbar here -->
+            <nav class="navbar navbar-dark py-3 fixed-top">
+                <div class="container-fluid">
+                  <a class="navbar-brand text-dark" href="{% url "home" %}">
+                    <img src="{% static "meal_planner/main_logo.svg" %}" alt="DigitalChef" width="150">
+                  </a>
+                  <div>
+                    {% if user.is_authenticated %}
+                        <a class="btn btn-dark" href="{% url "logout"%}" role="button">
+                            <div class="fw-semibold">
+                                Logout
+                            </div>
+                        </a>
+                    {% else %}
+                        <a class="btn btn-dark" href="{% url "login"%}" role="button">
+                            <div class="fw-semibold">
+                                Log In
+                            </div>
+                        </a>
+                        <a class="btn btn-dark" href="{% url "register" %}" role="button">
+                            <div class="fw-semibold">
+                                Sign Up
+                            </div>
+                        </a>
+                    {% endif %}
+                  </div>
+                </div>
+              </nav>
+        </header>
+        <main>
+            <div class="container-fluid">
+                <div class="row justify-content-center has-bg-image">
+                        <div class="col-8 py-5 text-center">
+                            <div class="pt-5"></div>
+                            <div class="pt-5"></div>
+                            <div class="pt-lg-5"></div>
+                            <div class="pt-lg-3"></div>
+                            <div class="py-2 fw-bold display-4">
+                                Take control of your diet!
+                            </div>
+                            <div class="pb-3 display-5 fw-semibold">
+                                Are you tired of relapsing?
+                            </div>
+                            <div class="pb-3 display-6 fw-medium">
+                                Let DigitalChef create a meal plan tailored for you specifically to help you reach your goals!
+                            </div>
+                            <div class="display-6 fw-lighter">
+                                DigitalChef automatically calculates your daily calorie intake, adjusts it according to your fitness goals, and creates a meal plan for you which is compatible with your diet choice and alergies! 
+                            </div>
+                        </div>
+                        <div class="pt-4 pb-5 text-center">
+                            <a class="btn btn-dark btn-lg" href="{% url "register" %}" role="button">
+                                <div class="my-2 mx-4">
+                                    <div class="fw-semibold fs-3">Get Started</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="pb-5"></div>
+                        <div class="pb-4"></div>
+                        
+                </div>
+            </div>
+        </main>
+        <footer>
+            <!-- place footer here -->
+        </footer>
+        <!-- Bootstrap JavaScript Libraries -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>

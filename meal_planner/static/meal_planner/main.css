@@ -1,0 +1,15 @@
+.bg-blackish {
+    background-color: #1F2021;
+}
+
+body {
+    background: linear-gradient(
+        rgba(255,255,255,0.7),
+        rgba(255,255,255,0.7)
+        ),
+        url("images/main_background.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
